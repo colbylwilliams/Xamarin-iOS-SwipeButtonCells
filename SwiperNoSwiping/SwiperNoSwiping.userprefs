@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5s.8.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SwiperNoSwiping.iOS/SwiperTableViewController.cs">
+    <Files>
+      <File FileName="SwiperNoSwiping.iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="SwiperNoSwiping.iOS/SwiperTableViewController.cs" Line="1" Column="1" />
+      <File FileName="SwiperNoSwiping.iOS/SwiperTableViewCell.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../Development/Bluetube/Projects/JacksonHealthcare/Co.Pilot/code/trunk/Jackson.Co.Pilot/Jackson.Co.Pilot.Pcl/Mediators/MappedItemMediator.cs" line="198" offsetX="422" offsetY="990" expression="item[0]" liveUpdate="False" />
+    <Watch file="../../Development/Bluetube/Projects/JacksonHealthcare/Co.Pilot/code/trunk/Jackson.Co.Pilot/Jackson.Co.Pilot.Pcl/Mediators/MappedItemMediator.cs" line="388" offsetX="1116" offsetY="1335" expression="Jackson.Co.Pilot.Entities.EmployeeLocations" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>
