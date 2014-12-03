@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace SwiperNoSwiping.iOS
@@ -42,4 +38,3 @@ namespace SwiperNoSwiping.iOS
 		}
 	}
 }
-
