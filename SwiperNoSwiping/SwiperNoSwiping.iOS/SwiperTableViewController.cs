@@ -1,21 +1,24 @@
 using System;
-using Foundation;
-using UIKit;
 using System.Collections.Generic;
 using CoreGraphics;
+using Foundation;
+using UIKit;
 
 namespace SwiperNoSwiping.iOS
 {
 
 	public partial class SwiperTableViewController : UITableViewController
 	{
-		static List<string> SwiperStrings = new List<string> { "Apple iPhone 4", "Apple iPhone 4s", "Apple iPhone 5", "Apple iPhone 5s", "Apple iPhone 6", "Apple iPhone 6 Plus" };
+		static List<string> SwiperStrings = new List<string> { "Apple iPhone 3", "Apple iPhone 3G", "Apple iPhone 3Gs", "Apple iPhone 4", "Apple iPhone 4s", "Apple iPhone 5", "Apple iPhone 5s", "Apple iPhone 6", "Apple iPhone 6 Plus" };
 
 		UITapGestureRecognizer SwiperTapGesture;
 
+
 		public SwiperTableViewController (IntPtr handle) : base (handle)
 		{
+
 		}
+
 
 		public override void ViewDidLoad ()
 		{
@@ -23,6 +26,7 @@ namespace SwiperNoSwiping.iOS
 
 			SwiperTapGesture = new UITapGestureRecognizer(HandleSwiperTapGesture);
 		}
+
 
 		public override void ViewWillAppear (bool animated)
 		{
@@ -39,15 +43,18 @@ namespace SwiperNoSwiping.iOS
 			base.ViewDidDisappear (animated);
 		}
 
+
 		public override nint NumberOfSections (UITableView tableView)
 		{
 			return 1;
 		}
 
+
 		public override nint RowsInSection (UITableView tableview, nint section)
 		{
 			return SwiperStrings.Count;
 		}
+
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
@@ -60,10 +67,12 @@ namespace SwiperNoSwiping.iOS
 			return cell;
 		}
 
+
 		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 		{
 			return 62;
 		}
+
 
 		public void HandleSwiperTapGesture (UITapGestureRecognizer press)
 		{
@@ -134,10 +143,5 @@ namespace SwiperNoSwiping.iOS
 
 			PresentViewController (alert, true, null);
 		}
-	}
-
-	public class SwiperGestureRecognizerDelegate : UIGestureRecognizerDelegate
-	{
-
 	}
 }

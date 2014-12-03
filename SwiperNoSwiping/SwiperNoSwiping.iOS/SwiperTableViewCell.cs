@@ -13,30 +13,30 @@ namespace SwiperNoSwiping.iOS
 	{
 		public static readonly string CellId = "SwiperTableViewCell";
 
-
+		// Set this to true to prevent the cell from revealing the button on the right
 		public bool LockRight { get; set; }
 
+		// Set this to true to allow the cell to reveal the button on the left
 		public bool LeftAvailable { get; set; }
 
 
+		// Either the LeftButton or RightButton is 'open'
 		public bool Open { 
 			get {
 				return LeftOpen || RightOpen;
 			}
 		}
 
+
+		// Use the ContentOffset of the ScrollView to determine whether or not the LeftButton is 'open'
 		public bool LeftOpen {
 			get {
 				return ContentScrollView.ContentOffset != CGPoint.Empty && ContentScrollView.ContentOffset.X < 0f;
 			}
 		}
 
-		public nfloat LeftButtonOffset {
-			get {
-				return LeftButton.Frame.Width;
-			}
-		}
 
+		// Use the ContentOffset of the ScrollView to determine whether or not the RightButton is 'open'
 		public bool RightOpen {
 			get {
 				return ContentScrollView.ContentOffset != CGPoint.Empty && ContentScrollView.ContentOffset.X > 0f;
@@ -44,6 +44,14 @@ namespace SwiperNoSwiping.iOS
 		}
 
 
+		// Used when determining if the user tapped on the LeftButton when it is 'open'
+		public nfloat LeftButtonOffset {
+			get {
+				return LeftButton.Frame.Width;
+			}
+		}
+
+		// Used when determining if the user tapped on the RightButton when it is 'open'
 		public nfloat RightButtonOffset {
 			get {
 				return Frame.Width - RightButton.Frame.Width;
@@ -53,7 +61,9 @@ namespace SwiperNoSwiping.iOS
 
 		public SwiperTableViewCell (IntPtr handle) : base (handle)
 		{
+
 		}
+
 
 		public override void AwakeFromNib ()
 		{
@@ -72,6 +82,7 @@ namespace SwiperNoSwiping.iOS
 
 			ContentScrollView.ContentInset = new UIEdgeInsets(0.0f, LeftAvailable ? LeftButton.Frame.Width : 0.0f, 0.0f, LockRight ? 0.0f : RightButton.Frame.Width);
 			ContentScrollView.SetContentOffset (CGPoint.Empty, true);
+
 			LeftButton.Hidden = !LeftAvailable;
 		}
 
@@ -92,10 +103,12 @@ namespace SwiperNoSwiping.iOS
 		{
 			readonly SwiperTableViewCell cell;
 
+
 			public SlidingCellScrollDelegate (SwiperTableViewCell cell)
 			{
 				this.cell = cell;
 			}
+
 
 			public override void Scrolled (UIScrollView scrollView)
 			{
@@ -107,6 +120,7 @@ namespace SwiperNoSwiping.iOS
 					scrollView.ContentOffset = CGPoint.Empty;
 				}
 			}
+
 
 			public override void WillEndDragging (UIScrollView scrollView, CGPoint velocity, ref CGPoint targetContentOffset)
 			{
